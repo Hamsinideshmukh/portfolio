@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamsini Deshmukh - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Hamsini Deshmukh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(180deg, #121212 0%, #1E1E1E 100%);
-            color: #fff;
+        /* Reset and Base Styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #141414;
+            color: #fff;
+            text-align: center;
             line-height: 1.6;
             overflow-x: hidden;
             position: relative;
         }
-        /* Background Particles Effect */
+        /* Background Overlay */
         body::before {
             content: '';
             position: fixed;
@@ -24,186 +29,150 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1610296669228-603423e2c0e7?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1480506132287-1f2c575c74c6?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             opacity: 0.05;
             z-index: -1;
-            animation: subtlePulse 10s infinite ease-in-out;
+            animation: subtleFade 15s infinite ease-in-out;
         }
+        /* Header */
         header {
-            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-            padding: 150px 20px;
-            text-align: center;
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: #87CEEB;
-            text-shadow: 0 0 25px rgba(135, 206, 235, 0.9);
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            padding: 100px 20px;
             position: relative;
-            border-bottom: 5px solid rgba(135, 206, 235, 0.5);
-        }
-        header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(18, 18, 18, 0.7), rgba(135, 206, 235, 0.2));
-            z-index: 0;
+            border-bottom: 4px solid #e50914;
+            animation: fadeIn 2s ease-in-out;
         }
         header h1 {
-            margin: 0;
-            position: relative;
-            z-index: 1;
-            animation: glowText 2s infinite alternate, slideIn 1.5s ease-out;
+            font-size: 4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(229, 9, 20, 0.8);
+            animation: glowText 2s infinite alternate;
         }
-        .container {
-            width: 90%;
-            max-width: 1300px;
+        header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #e50914;
+            margin-top: 10px;
+            text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+        }
+        /* Main Content */
+        main {
+            padding: 60px 0;
+        }
+        .about {
             margin: 0 auto;
-            padding: 70px 0;
-        }
-        .section {
-            background: rgba(255, 255, 255, 0.06);
+            width: 70%;
+            max-width: 1000px;
+            background: rgba(20, 20, 20, 0.9);
             padding: 50px;
-            border-radius: 25px;
-            margin-bottom: 60px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-            animation: fadeUp 1.2s ease-in-out;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: slideUp 1.5s ease-in-out;
         }
-        .section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(135, 206, 235, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-            transition: transform 0.5s ease;
-            z-index: -1;
+        .about:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(229, 9, 20, 0.3);
         }
-        .section:hover::before {
-            transform: scale(1.5);
-        }
-        .section:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 20px 40px rgba(135, 206, 235, 0.4);
-        }
-        .section h2 {
-            color: #87CEEB;
-            font-size: 3rem;
+        .about h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #e50914;
             text-transform: uppercase;
             margin-bottom: 30px;
-            letter-spacing: 4px;
-            text-shadow: 0 0 15px rgba(135, 206, 235, 0.7);
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
         }
-        .section p {
-            font-size: 1.4rem;
-            line-height: 2;
-            max-width: 900px;
-            margin: 0 auto;
+        .about p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #fff;
+            margin: 20px 0;
+            transition: color 0.3s ease;
         }
+        .about p:hover {
+            color: #e50914;
+        }
+        .about strong {
+            color: #e50914;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+        }
+        /* Skills Section (Added) */
         .skills {
+            margin: 60px auto;
+            width: 70%;
+            max-width: 1000px;
+            background: rgba(20, 20, 20, 0.9);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            animation: slideUp 1.8s ease-in-out;
+        }
+        .skills:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(229, 9, 20, 0.3);
+        }
+        .skills h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: #e50914;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(229, 9, 20, 0.7);
+        }
+        .skills-grid {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 25px;
-            margin-top: 30px;
+            gap: 20px;
         }
-        .skill-box {
-            background: linear-gradient(135deg, rgba(135, 206, 235, 0.3), rgba(135, 206, 235, 0.1));
+        .skill-item {
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.2), rgba(255, 255, 255, 0.1));
             padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 1.4rem;
-            font-weight: bold;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: 600;
             transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3);
+            box-shadow: 0 5px 15px rgba(229, 9, 20, 0.3);
         }
-        .skill-box:hover {
-            background: linear-gradient(135deg, rgba(135, 206, 235, 0.8), rgba(135, 206, 235, 0.5));
-            transform: scale(1.15) rotate(3deg);
-            box-shadow: 0 10px 25px rgba(135, 206, 235, 0.6);
+        .skill-item:hover {
+            background: linear-gradient(135deg, rgba(229, 9, 20, 0.8), rgba(229, 9, 20, 0.5));
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 10px 25px rgba(229, 9, 20, 0.6);
         }
-        .journey-img, .skills-img {
+        /* Image Section */
+        .journey-img {
             width: 100%;
-            max-width: 650px;
-            border-radius: 20px;
-            margin: 30px auto;
+            max-width: 700px;
+            border-radius: 10px;
+            margin: 40px auto;
             display: block;
-            box-shadow: 0 8px 25px rgba(135, 206, 235, 0.5);
+            box-shadow: 0 8px 25px rgba(229, 9, 20, 0.5);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-        .journey-img:hover, .skills-img:hover {
-            transform: scale(1.08);
-            box-shadow: 0 12px 35px rgba(135, 206, 235, 0.7);
-        }
-        .contact {
-            background: #1E1E1E;
-            padding: 70px 20px;
-            text-align: center;
-            border-top: 6px solid #87CEEB;
-            margin-top: 70px;
-            box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.6);
-            position: relative;
-        }
-        .contact h2 {
-            color: #87CEEB;
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            text-shadow: 0 0 15px rgba(135, 206, 235, 0.7);
-        }
-        .contact p, .contact a {
-            font-size: 1.4rem;
-            color: #87CEEB;
-            text-decoration: none;
-            margin: 15px 0;
-            display: block;
-            transition: all 0.3s ease;
-        }
-        .contact a:hover {
-            color: #fff;
-            text-shadow: 0 0 10px rgba(135, 206, 235, 0.8);
-            transform: translateY(-3px);
-        }
-        .spotify-btn {
-            background: linear-gradient(135deg, #87CEEB, #5ABCEB);
-            color: #121212;
-            padding: 20px 45px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.6rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.5s ease;
-            box-shadow: 0 8px 20px rgba(135, 206, 235, 0.6);
-            margin-top: 30px;
-        }
-        .spotify-btn:hover {
-            background: linear-gradient(135deg, #fff, #87CEEB);
-            transform: scale(1.12);
-            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.6);
+        .journey-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(229, 9, 20, 0.7);
         }
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        @keyframes slideIn {
-            from { transform: translateY(-60px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes fadeUp {
-            from { transform: translateY(40px); opacity: 0; }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
         @keyframes glowText {
-            from { text-shadow: 0 0 15px rgba(135, 206, 235, 0.7); }
-            to { text-shadow: 0 0 25px rgba(135, 206, 235, 1); }
+            from { text-shadow: 0 0 15px rgba(229, 9, 20, 0.7); }
+            to { text-shadow: 0 0 25px rgba(229, 9, 20, 1); }
         }
-        @keyframes subtlePulse {
+        @keyframes subtleFade {
             0% { opacity: 0.05; }
             50% { opacity: 0.08; }
             100% { opacity: 0.05; }
@@ -213,37 +182,26 @@
 <body>
     <header>
         <h1>Hamsini Deshmukh</h1>
+        <p>Pursuing a Bachelor's Degree at IIITDM Kancheepuram</p>
     </header>
-    <div class="container">
-        <div class="section">
+    <main>
+        <section class="about">
             <h2>About Me</h2>
-            <p>Hey there! I’m Hamsini Deshmukh, a spirited student chasing a Bachelor’s degree at the Indian Institute of Information Technology, Design and Manufacturing (IIITDM) Kancheepuram. I might not fit the classic Computer Science mold, but my love for tech is undeniable. I’ve plunged into this world with a thirst to decode systems, craft solutions, and push boundaries—driven by a relentless curiosity that keeps me going.</p>
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="My Journey" class="journey-img">
-        </div>
-        <div class="section">
-            <h2>Technical Skills</h2>
-            <p>I’m sculpting my tech prowess step by step, fueled by passion and persistence. My toolkit’s a work in progress, packed with tools I’ve picked up along the way—ready to tackle any challenge that comes my way:</p>
-            <div class="skills">
-                <div class="skill-box">C</div>
-                <div class="skill-box">C++</div>
-                <div class="skill-box">Python</div>
-                <div class="skill-box">Data Structures & Algorithms</div>
-                <div class="skill-box">SQL</div>
+            <p>I’m Hamsini Deshmukh, a tech enthusiast with a twist—I didn’t start in the traditional Computer Science lane, but my passion for the field is as real as it gets. Studying at IIITDM Kancheepuram, I’ve dived headfirst into the world of coding, armed with curiosity and a drive to create.</p>
+            <p>My journey’s been fueled by self-learning—online courses have been my playground, helping me explore <strong>Machine Learning</strong>, my ultimate passion. I dream of a future where I harness data and algorithms to build systems that think, learn, and change the game.</p>
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop" alt="Tech Journey" class="journey-img">
+        </section>
+        <section class="skills">
+            <h2>My Skills</h2>
+            <p>Here’s what I bring to the screen—a growing arsenal of skills, sharpened through grit and late-night sessions:</p>
+            <div class="skills-grid">
+                <div class="skill-item">C</div>
+                <div class="skill-item">C++</div>
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Data Structures & Algorithms</div>
+                <div class="skill-item">SQL</div>
             </div>
-            <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97fd7?q=80&w=2070&auto=format&fit=crop" alt="Skills Visual" class="skills-img">
-        </div>
-        <div class="section">
-            <h2>My Journey & Passion</h2>
-            <p>My tech odyssey is a wild ride of discovery. I’m honing my Data Structures and Algorithms with grit and online courses that spark my imagination. SQL slipped into my skillset through a Data Management Systems course, showing me the beauty of data in motion. But Machine Learning? That’s my obsession. Its power to reshape industries and solve big problems has me hooked—I’m dreaming of a future where I fuse code, data, and creativity into intelligent systems. Right now, I’m devouring online CS courses and tinkering with projects to make that dream real.</p>
-            <button class="spotify-btn">Explore My Work</button>
-        </div>
-    </div>
-    <div class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:deshmukhhamsini@gmail.com">deshmukhhamsini@gmail.com</a></p>
-        <p>Phone: <a href="tel:+919494553338">+91 9494553338</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/hamsini-deshmukh-59a5302a5" target="_blank">linkedin.com/in/hamsini-deshmukh</a></p>
-        <p>Based in Chennai, Tamil Nadu | Let’s geek out over tech!</p>
-    </div>
+        </section>
+    </main>
 </body>
 </html>
