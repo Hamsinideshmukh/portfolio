@@ -8,21 +8,37 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #121212;
+            background: linear-gradient(180deg, #121212 0%, #1E1E1E 100%);
             color: #fff;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Background Particles Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1610296669228-603423e2c0e7?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            opacity: 0.05;
+            z-index: -1;
+            animation: subtlePulse 10s infinite ease-in-out;
         }
         header {
-            background: url('https://source.unsplash.com/1600x900/?technology,ai,dark') center/cover no-repeat;
-            padding: 100px 20px;
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+            padding: 150px 20px;
             text-align: center;
-            font-size: 3.5rem;
+            font-size: 4.5rem;
             font-weight: 700;
             color: #87CEEB;
-            text-shadow: 0 0 15px rgba(135, 206, 235, 0.7);
+            text-shadow: 0 0 25px rgba(135, 206, 235, 0.9);
             position: relative;
+            border-bottom: 5px solid rgba(135, 206, 235, 0.5);
         }
         header::after {
             content: '';
@@ -31,108 +47,166 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(18, 18, 18, 0.8), rgba(135, 206, 235, 0.2));
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.7), rgba(135, 206, 235, 0.2));
+            z-index: 0;
         }
         header h1 {
             margin: 0;
             position: relative;
             z-index: 1;
+            animation: glowText 2s infinite alternate, slideIn 1.5s ease-out;
         }
         .container {
             width: 90%;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 50px 0;
+            padding: 70px 0;
         }
         .section {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 40px;
-            border-radius: 15px;
-            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 50px;
+            border-radius: 25px;
+            margin-bottom: 60px;
             text-align: center;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeUp 1.2s ease-in-out;
+        }
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(135, 206, 235, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+        .section:hover::before {
+            transform: scale(1.5);
         }
         .section:hover {
-            transform: scale(1.02);
+            transform: translateY(-20px);
+            box-shadow: 0 20px 40px rgba(135, 206, 235, 0.4);
         }
         .section h2 {
             color: #87CEEB;
-            font-size: 2.5rem;
+            font-size: 3rem;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
+            margin-bottom: 30px;
+            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(135, 206, 235, 0.7);
         }
         .section p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            max-width: 800px;
+            font-size: 1.4rem;
+            line-height: 2;
+            max-width: 900px;
             margin: 0 auto;
         }
         .skills {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 25px;
+            margin-top: 30px;
         }
         .skill-box {
-            background: rgba(135, 206, 235, 0.2);
-            padding: 15px 25px;
-            border-radius: 25px;
-            font-size: 1.2rem;
+            background: linear-gradient(135deg, rgba(135, 206, 235, 0.3), rgba(135, 206, 235, 0.1));
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.4rem;
             font-weight: bold;
-            transition: background 0.3s ease, transform 0.3s ease;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3);
         }
         .skill-box:hover {
-            background: rgba(135, 206, 235, 0.5);
-            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(135, 206, 235, 0.8), rgba(135, 206, 235, 0.5));
+            transform: scale(1.15) rotate(3deg);
+            box-shadow: 0 10px 25px rgba(135, 206, 235, 0.6);
         }
-        .journey-img {
+        .journey-img, .skills-img {
             width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            margin: 20px auto;
+            max-width: 650px;
+            border-radius: 20px;
+            margin: 30px auto;
             display: block;
-            box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3);
+            box-shadow: 0 8px 25px rgba(135, 206, 235, 0.5);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .journey-img:hover, .skills-img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(135, 206, 235, 0.7);
         }
         .contact {
             background: #1E1E1E;
-            padding: 50px 20px;
+            padding: 70px 20px;
             text-align: center;
-            border-top: 4px solid #87CEEB;
-            margin-top: 50px;
+            border-top: 6px solid #87CEEB;
+            margin-top: 70px;
+            box-shadow: 0 -15px 30px rgba(0, 0, 0, 0.6);
+            position: relative;
         }
         .contact h2 {
             color: #87CEEB;
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(135, 206, 235, 0.7);
         }
         .contact p, .contact a {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: #87CEEB;
             text-decoration: none;
-            margin: 10px 0;
+            margin: 15px 0;
             display: block;
+            transition: all 0.3s ease;
         }
         .contact a:hover {
             color: #fff;
-            text-decoration: underline;
+            text-shadow: 0 0 10px rgba(135, 206, 235, 0.8);
+            transform: translateY(-3px);
         }
         .spotify-btn {
-            background: #87CEEB;
+            background: linear-gradient(135deg, #87CEEB, #5ABCEB);
             color: #121212;
-            padding: 15px 30px;
+            padding: 20px 45px;
             border: none;
             border-radius: 50px;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s ease;
-            margin-top: 20px;
+            transition: all 0.5s ease;
+            box-shadow: 0 8px 20px rgba(135, 206, 235, 0.6);
+            margin-top: 30px;
         }
         .spotify-btn:hover {
-            background: #fff;
+            background: linear-gradient(135deg, #fff, #87CEEB);
+            transform: scale(1.12);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.6);
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-60px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes glowText {
+            from { text-shadow: 0 0 15px rgba(135, 206, 235, 0.7); }
+            to { text-shadow: 0 0 25px rgba(135, 206, 235, 1); }
+        }
+        @keyframes subtlePulse {
+            0% { opacity: 0.05; }
+            50% { opacity: 0.08; }
+            100% { opacity: 0.05; }
         }
     </style>
 </head>
@@ -143,12 +217,12 @@
     <div class="container">
         <div class="section">
             <h2>About Me</h2>
-            <p>Hello! I’m Hamsini Deshmukh, a determined student pursuing a Bachelor’s degree at the Indian Institute of Information Technology, Design and Manufacturing (IIITDM) Kancheepuram. While I don’t come from the typical Computer Science background, my passion for the field is unshakable. I’ve immersed myself in the world of technology, driven by a curiosity to understand how systems work and a desire to build solutions that matter.</p>
-            <img src="https://source.unsplash.com/500x300/?coding,tech" alt="My Journey" class="journey-img">
+            <p>Hey there! I’m Hamsini Deshmukh, a spirited student chasing a Bachelor’s degree at the Indian Institute of Information Technology, Design and Manufacturing (IIITDM) Kancheepuram. I might not fit the classic Computer Science mold, but my love for tech is undeniable. I’ve plunged into this world with a thirst to decode systems, craft solutions, and push boundaries—driven by a relentless curiosity that keeps me going.</p>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="My Journey" class="journey-img">
         </div>
         <div class="section">
             <h2>Technical Skills</h2>
-            <p>I’ve built a solid foundation in programming and problem-solving, and I’m constantly expanding my skill set. Here’s what I’ve got in my toolkit so far:</p>
+            <p>I’m sculpting my tech prowess step by step, fueled by passion and persistence. My toolkit’s a work in progress, packed with tools I’ve picked up along the way—ready to tackle any challenge that comes my way:</p>
             <div class="skills">
                 <div class="skill-box">C</div>
                 <div class="skill-box">C++</div>
@@ -156,10 +230,11 @@
                 <div class="skill-box">Data Structures & Algorithms</div>
                 <div class="skill-box">SQL</div>
             </div>
+            <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97fd7?q=80&w=2070&auto=format&fit=crop" alt="Skills Visual" class="skills-img">
         </div>
         <div class="section">
             <h2>My Journey & Passion</h2>
-            <p>Though I’m not yet an expert, I’m steadily mastering Data Structures and Algorithms, thanks to hands-on practice and online courses that have fueled my growth. I’ve also explored SQL through a basic Data Management Systems course, giving me a taste of how data powers technology. What excites me most, though, is Machine Learning. I’m fascinated by its potential to transform industries and solve real-world problems. It’s where I see my future—blending code, data, and innovation to create intelligent systems. Right now, I’m soaking up knowledge from online CS courses and experimenting with small projects to get there.</p>
+            <p>My tech odyssey is a wild ride of discovery. I’m honing my Data Structures and Algorithms with grit and online courses that spark my imagination. SQL slipped into my skillset through a Data Management Systems course, showing me the beauty of data in motion. But Machine Learning? That’s my obsession. Its power to reshape industries and solve big problems has me hooked—I’m dreaming of a future where I fuse code, data, and creativity into intelligent systems. Right now, I’m devouring online CS courses and tinkering with projects to make that dream real.</p>
             <button class="spotify-btn">Explore My Work</button>
         </div>
     </div>
@@ -168,7 +243,7 @@
         <p>Email: <a href="mailto:deshmukhhamsini@gmail.com">deshmukhhamsini@gmail.com</a></p>
         <p>Phone: <a href="tel:+919494553338">+91 9494553338</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/hamsini-deshmukh-59a5302a5" target="_blank">linkedin.com/in/hamsini-deshmukh</a></p>
-        <p>Based in Kancheepuram, Tamil Nadu | Always up for a tech chat!</p>
+        <p>Based in Chennai, Tamil Nadu | Let’s geek out over tech!</p>
     </div>
 </body>
 </html>
