@@ -8,20 +8,21 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #1db954;
+            background-color: #121212;
             color: #fff;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #81c7a5;
-            padding: 40px;
+            background: url('https://source.unsplash.com/1600x900/?technology,ai') center/cover no-repeat;
+            padding: 80px;
             text-align: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
+            color: #87CEEB;
         }
         .container {
-            width: 80%;
+            width: 90%;
             margin: 50px auto;
             display: flex;
             flex-direction: column;
@@ -29,32 +30,45 @@
         }
         .section {
             background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             margin-bottom: 20px;
-            width: 80%;
+            width: 85%;
             text-align: center;
+            box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.1);
         }
         .section h2 {
-            color: #a8e6cf;
+            color: #87CEEB;
             font-size: 2rem;
+            text-transform: uppercase;
         }
         .section p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+        }
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .skill-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
             font-size: 1.2rem;
-            line-height: 1.6;
+            font-weight: bold;
         }
         .contact {
-            background: #81c7a5;
-            padding: 20px;
+            background: #1E1E1E;
+            padding: 30px;
             text-align: center;
+            border-top: 2px solid #87CEEB;
         }
-        .contact p {
+        .contact p, .contact a {
             font-size: 1.2rem;
-        }
-        a {
-            color: #a8e6cf;
+            color: #87CEEB;
             text-decoration: none;
-            font-weight: 700;
         }
     </style>
 </head>
@@ -64,26 +78,16 @@
     </header>
     <div class="container">
         <div class="section">
-            <h2>Who Am I?</h2>
-            <p>A passionate and ambitious student pursuing my Bachelor's degree at IIITDM Kancheepuram. Although I do not belong to a conventional Computer Science degree, my dedication to programming and technology drives me forward.</p>
+            <h2>About Me</h2>
+            <p>I am an ambitious student at IIITDM Kancheepuram, driven by an immense passion for technology and computer science. Despite not being from a traditional CS background, I am dedicated to mastering programming, algorithms, and software development.</p>
         </div>
         <div class="section">
-            <h2>Skills & Technologies</h2>
-            <p>I have experience with C, C++, and Python, along with a solid understanding of Data Structures and Algorithms. I have also explored SQL through a Basic Data Management Systems course.</p>
-        </div>
-        <div class="section">
-            <h2>My Passion for Machine Learning</h2>
-            <p>Machine Learning fascinates me, and I aspire to specialize in this field. I have taken multiple online courses and am constantly improving my skills to explore AI and data-driven solutions.</p>
-        </div>
-        <div class="section">
-            <h2>Projects</h2>
-            <p>Currently working on personal projects to sharpen my coding abilities. Excited about implementing ML algorithms in real-world applications!</p>
-        </div>
-    </div>
-    <footer class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: hamsini.deshmukh@gmail.com</p>
-        <p>LinkedIn: <a href="#">linkedin.com/in/hamsinideshmukh</a></p>
-    </footer>
-</body>
-</html>
+            <h2>Technical Skills</h2>
+            <div class="skills">
+                <div class="skill-box">C</div>
+                <div class="skill-box">C++</div>
+                <div class="skill-box">Python</div>
+                <div class="skill-box">Data Structures & Algorithms</div>
+                <div class="skill-box">SQL</div>
+                <div class="skill-box">Machine Learning</div>
+                <div class="
